@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import { Poppins } from "next/font/google";
 import "../globals.css";
+import Header from "@/lib/shared/Header";
+import Footer from "@/lib/shared/Footer";
 
 const poppins = Poppins({ 
   subsets: ["latin"],
@@ -23,8 +25,10 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body className={poppins.variable}>{children}</body>
-    </html>
+    <div lang="en" className="flex h-screen flex-col">
+      <Header/>
+      <main className={poppins.variable}>{children}</main>
+      <Footer/>
+    </div>
   );
 }
